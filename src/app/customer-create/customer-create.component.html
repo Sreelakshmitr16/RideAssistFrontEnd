@@ -1,0 +1,56 @@
+<div class="card mb-3 mx-auto mt-3" style="max-width: 80%;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../../assets/images/car service.jpg" class="w-100 rounded-start" alt="..."> <!--image fluid kalanjit w-100 koduka -->
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <!-- <h5 class="card-title text-center fw-bold">{{isEdit?"Edit Customer Details":"Add Customer Details"}}</h5> -->
+
+
+          <h1 class="card-title text-center fw-bold"  *ngIf="isEdit;else addMode">Edit customer Detail</h1>
+
+          <ng-template #addMode>
+            <h1 class="card-title text-center fw-bold" >Add customer Detail</h1>
+          </ng-template>
+
+
+      
+          <form action="" [formGroup]="customerForm" (ngSubmit)="handleSubmit()">
+            <div class="mb-3">
+                <label for="">Customer Name</label>
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="">Customer Phone Number</label>
+                <input type="text" class="form-control" formControlName="phone">
+
+            </div>
+            <div class="mb-3">
+                <label for="">Customer Email</label>
+                <input type="email" class="form-control" formControlName="email">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="">Running Kilometers</label>
+                <input type="text" class="form-control" formControlName="running_km">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="">VehicleNumber</label>
+                <input type="text" class="form-control" formControlName="vehicle_no">
+
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-dark form-control">{{isEdit?"change":"add"}}</button>
+            </div>
+            
+          </form>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>

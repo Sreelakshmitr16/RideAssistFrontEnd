@@ -1,0 +1,62 @@
+<!-- <pre>
+    {{customers|json}}
+</pre> -->
+<div class="my-3 text-end">
+    <button class="btn btn-dark" routerLink="/customer/add" >Add</button>
+</div>
+<div class="card my-3" *ngFor="let cust of customers">
+    <div class="card-header">
+        {{cust.name}}
+    </div>
+    <div class="card-body row ">
+        <div class="col-2 border-end">
+            <h5 class="text-center text-decoration-underline"> Customer Details</h5>
+
+            <div class="my-3"><span class="me-2"><i class="fa-solid fa-phone"></i></span>{{cust.phone}}</div>
+
+            <div><span class="me-2"><i class="fa-regular fa-envelope"></i></span>{{cust.email}}</div>
+
+
+        </div>
+        <div class="col-2 border-end">
+            <h5 class="text-center text-decoration-underline"> Odometer</h5>
+
+            <div class="my-3"><span class="me-2"><i class="fa-solid fa-gauge"></i></span>{{cust.running_km}}km</div>
+
+
+
+        </div>
+        <div class="col-2 border-end">
+            <h5 class="text-center text-decoration-underline"> Date</h5>
+
+            <div class="my-3"><span class="me-2"><i
+                        class="fa-solid fa-calendar-days"></i></span>{{cust.created_date|date}}</div>
+
+
+        </div>
+        <div class="col-2 border-end">
+            <h5 class="text-center text-decoration-underline"> VehicleNumber</h5>
+
+            <div class="my-3"><span class="me-2"><i class="fa-solid fa-car"></i></span>{{cust.vehicle_no}}</div>
+
+        </div>
+        <div class="col-2 border-end">
+            <h5 class="text-center text-decoration-underline"> Total</h5>
+
+            <div class="my-3"><span class="me-2"><i class="fa-solid fa-rupee-sign"></i></span>{{cust.work_total}}</div>
+        </div>
+        <div class="col-2 ">
+            <h5 class="text-center text-decoration-underline"> Aciton</h5>
+
+
+            <div class="my-3"> 
+                <a href="" [routerLink]="['/customer',cust.id]" class="btn btn-outline-primary me-1">view</a>
+                <a href=""  routerLink="/customer/add" [queryParams]="{custId:cust.id}" class="btn btn-outline-warning me-1">edit</a>
+                <button (click)="handleDelete(cust.id)" class="btn btn-outline-danger">delete</button>
+                <button  (click)="generatePdf(cust.id)" class="btn btn-outline-success">Invoice</button>
+            </div>
+
+           
+        </div>
+    </div>
+</div>
