@@ -37,6 +37,7 @@ export class CustomerlistComponent {
       head: [['Title', 'Description', 'Amount']],
       body: body,
     })
+    doc.text("invoice",20,20)
     doc.save('table.pdf')
   }
 }
